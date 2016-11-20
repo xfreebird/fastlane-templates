@@ -1,0 +1,21 @@
+source 'https://github.com/CocoaPods/Specs.git'
+
+platform :ios, '9.0'
+use_frameworks!
+
+# ignore all warnings from all pods
+inhibit_all_warnings!
+
+abstract_target 'Common' do
+  pod 'Fabric'
+  pod 'Crashlytics'
+
+  target 'Template' do
+  end
+
+  target 'TemplateTests' do
+  end
+
+  target 'TemplateUITests' do
+  end
+end
