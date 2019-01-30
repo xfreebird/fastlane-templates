@@ -4,10 +4,9 @@
 export LC_ALL=en_US.UTF-8
 
 
-# check if bundler is installed
-if ! [ -x "$(command -v bundle)" ]; then
-  gem install bundler --no-rdoc --no-ri  
-fi
+# Install necessary version of bundler
+bundler_version=`ruby -e 'puts $<.read[/BUNDLED WITH\n   (\S+)$/, 1] || "<1.10"' Gemfile.lock`
+gem install bundler --conservative --no-document -v $bundler_version
 
 # cache gem packages
 gem_cache="$HOME/.bundler/gems/cache"
